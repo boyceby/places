@@ -1,0 +1,1 @@
+export const RESULT_RADIUS = 8046.72; // 5 miles (in meters)
