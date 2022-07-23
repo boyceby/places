@@ -1,10 +1,13 @@
 /** @type {import('next').NextConfig} */
+
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ["maps.googleapis.com"],
+    domains: ["maps.googleapis.com", ""],
   },
 };
+
+module.exports = nextConfig;
 
 // DEV CONFIGURATION:
 // const webpack = require("webpack");
