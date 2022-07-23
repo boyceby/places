@@ -177,7 +177,7 @@ const Card: React.FC<{
                       `maxwidth=175` +
                       `&maxheight=125` +
                       `&photo_reference=${place.photos[0]?.photo_reference}` +
-                      `&key=${process.env.GOOGLE_MAPS_API_KEY}`
+                      `&key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}`
                 }
                 onError={() => setImgError(true)}
                 width={175}

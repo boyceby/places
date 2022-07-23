@@ -84,8 +84,8 @@ export async function fetchPlaceInfoByID(
   detailed: true
 ): Promise<DetailedPlaceInfo>;
 export async function fetchPlaceInfoByID(placeID: string, detailed: boolean) {
-  if (!process.env.GOOGLE_MAPS_API_KEY) {
-    throw new Error("GOOGLE_MAPS_API_KEY not set");
+  if (!process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY) {
+    throw new Error("NEXT_PUBLIC_GOOGLE_MAPS_API_KEY not set");
   }
   try {
     const BASE_URL = "https://maps.googleapis.com/maps/api/place/details/json";
@@ -107,7 +107,7 @@ export async function fetchPlaceInfoByID(placeID: string, detailed: boolean) {
 
     const resp = await fetch(
       `${BASE_URL}?place_id=${placeID}&fields=${fields.join("%2C")}&key=${
-        process.env.GOOGLE_MAPS_API_KEY
+        process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY
       }`
     );
 
@@ -157,8 +157,8 @@ export const fetchPlaceInfosWithTextSearch = async (
   query: string,
   coords: Coords
 ): Promise<PlaceInfo[]> => {
-  if (!process.env.GOOGLE_MAPS_API_KEY) {
-    throw new Error("GOOGLE_MAPS_API_KEY not set");
+  if (!process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY) {
+    throw new Error("NEXT_PUBLIC_GOOGLE_MAPS_API_KEY not set");
   }
 
   const BASE_URL = "https://maps.googleapis.com/maps/api/place/textsearch/json";
@@ -169,7 +169,7 @@ export const fetchPlaceInfosWithTextSearch = async (
       `?query=${formattedQuery}` +
       `&location=${formattedCoords}` +
       `&radius=${RESULT_RADIUS}` +
-      `&key=${process.env.GOOGLE_MAPS_API_KEY}`
+      `&key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}`
   );
 
   const data = (await resp.json()) as GooglePlaceTextSearchResp;
@@ -199,8 +199,8 @@ export const fetchPlaceInfosWithNearbySearch = async (
   keyword: string,
   coords: Coords
 ): Promise<PlaceInfo[]> => {
-  if (!process.env.GOOGLE_MAPS_API_KEY) {
-    throw new Error("GOOGLE_MAPS_API_KEY not set");
+  if (!process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY) {
+    throw new Error("NEXT_PUBLIC_GOOGLE_MAPS_API_KEY not set");
   }
 
   const BASE_URL =
@@ -212,7 +212,7 @@ export const fetchPlaceInfosWithNearbySearch = async (
       `?keyword=${formattedKeyword}` +
       `&location=${formattedCoords}` +
       `&radius=${RESULT_RADIUS}` +
-      `&key=${process.env.GOOGLE_MAPS_API_KEY}`
+      `&key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}`
   );
 
   const data = (await resp.json()) as GooglePlaceNearbySearchResp;
