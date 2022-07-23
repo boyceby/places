@@ -6,6 +6,7 @@ const nextConfig = {
   },
 };
 
+// DEV CONFIGURATION:
 // const webpack = require("webpack");
 // const dotenv = require("dotenv");
 
